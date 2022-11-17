@@ -27,7 +27,7 @@ namespace Final_Modulo2_Arturo
             {
                 MenuActivo.BackColor = Color.White;
             }
-            menu.BackColor = Color.Silver;
+            menu.BackColor = Color.White;
             MenuActivo = menu;
 
             if (FormularioActivo != null)
@@ -39,7 +39,7 @@ namespace Final_Modulo2_Arturo
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.SteelBlue;
+            formulario.BackColor = Color.White;
 
             panel1.Controls.Add(formulario);
             formulario.Show();
