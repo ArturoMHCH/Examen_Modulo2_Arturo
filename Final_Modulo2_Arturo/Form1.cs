@@ -12,10 +12,46 @@ namespace Final_Modulo2_Arturo
 {
     public partial class Form1 : Form
     {
+        //private static Farmaceutico usuarioActual;
+        private static ToolStripMenuItem MenuActivo = null;
+        private static Form FormularioActivo = null;
+
         public Form1()
         {
             InitializeComponent();
         }
+        private void AbrirFormulario(ToolStripMenuItem menu, Form formulario)
+        {
 
+            if (MenuActivo != null)
+            {
+                MenuActivo.BackColor = Color.White;
+            }
+            menu.BackColor = Color.Silver;
+            MenuActivo = menu;
+
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+
+            FormularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.SteelBlue;
+
+            panel1.Controls.Add(formulario);
+            formulario.Show();
+
+
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormulario(toolStripMenuItem3, new Form2());
+
+        }
     }
 }
