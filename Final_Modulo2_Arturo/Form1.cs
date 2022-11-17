@@ -53,5 +53,10 @@ namespace Final_Modulo2_Arturo
             AbrirFormulario(toolStripMenuItem3, new Form2());
 
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(toolStripMenuItem2, new Form3());
+        }
     }
 }
