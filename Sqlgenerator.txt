@@ -1,0 +1,91 @@
+use farmacia
+go
+
+create table cliente(
+nit int primary key,
+nombreCliente varchar(40),
+apellidoCliente varchar(40)
+)
+go
+create table farmaceutico(
+ci nvarchar(30) primary key,
+nombreFarm varchar(40),
+apellidoFarm varchar(40),
+contrasena varchar(100),
+cargo Char(1)
+)
+go
+create table detalleMed(
+codDetalle nvarchar(40) primary key,
+nombreMedic nvarchar(40),
+descripcion nvarchar(500)
+)
+go
+create table medicamento(
+codMedic nvarchar(40) primary key,
+fechaExp nvarchar(40),
+codDetalleMed nvarchar(40),
+CONSTRAINT fk_detalleMed FOREIGN KEY (codDetalleMed) REFERENCES detalleMed (codDetalle)
+)
+go
+
+create table factura(
+numFactura int primary key,
+fecha nvarchar(40),
+ci nvarchar(30),
+nit int,
+CONSTRAINT fk_farmaceutico FOREIGN KEY (ci) REFERENCES farmaceutico (ci),
+CONSTRAINT fk_cliente FOREIGN KEY (nit) REFERENCES cliente (nit)
+)
+go
+create table detalleVenta(
+numFactura int,
+codMedic nvarchar(40),
+cantidad int,
+primary key(numFactura,codMedic),
+CONSTRAINT fk_factura FOREIGN KEY (numFactura) REFERENCES factura (numFactura),
+CONSTRAINT fk_medicamento FOREIGN KEY (codMedic) REFERENCES medicamento (codMedic)
+)
+go
+
+use farmacia
+insert into farmaceutico(ci,nombreFarm,apellidoFarm,contrasena,cargo) values('abc','Dan','Col','abc','d');
+go
+
+use farmacia
+insert into farmaceutico(ci,nombreFarm,apellidoFarm,contrasena,cargo) values('123','Dan','Col','123','c');
+go
+
+use farmacia
+insert into farmaceutico(ci,nombreFarm,apellidoFarm,contrasena,cargo) values('abc','Dan','Col','abc','d');
+go
+
+use farmacia
+insert into farmaceutico(ci,nombreFarm,apellidoFarm,contrasena,cargo) values('123','Dan','Col','123','c');
+go
+
+use farmacia
+insert into detalleMed(codDetalle,nombreMedic,descripcion) values('abc','alka','higiene');
+go
+
+use farmacia
+insert into medicamento(codMedic,fechaExp,codDetalleMed) values('123','01-02-2026','abc');
+go
+
+use farmacia
+insert into detalleMed(codDetalle,nombreMedic,descripcion) values('abs','ibu','alivia garganta');
+go
+
+use farmacia
+insert into medicamento(codMedic,fechaExp,codDetalleMed) values('125','01-02-2026','abs');
+go
+
+use farmacia
+insert into detalleMed(codDetalle,nombreMedic,descripcion) values('abq','paracetamol','alivia dolor cabeza');
+go
+
+use farmacia
+insert into medicamento(codMedic,fechaExp,codDetalleMed) values('129','01-02-2026','abq');
+go
+
+
