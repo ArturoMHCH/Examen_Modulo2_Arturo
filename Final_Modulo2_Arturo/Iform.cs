@@ -6,6 +6,6 @@ namespace Final_Modulo2_Arturo
 {
     public interface Iform
     {
-        void ejecutar(string texto);
+        void ejecutar(string texto,string ci);
     }
 }

@@ -23,9 +23,10 @@ namespace Final_Modulo2_Arturo
             
 
         }
-        public void ejecutar(string texto)
+        public void ejecutar(string texto,string ci)
         {
             label1.Text = texto;
+            label2.Text = ci;
         }
         private void AbrirFormulario(ToolStripMenuItem menu, Form formulario, int form)
         {
@@ -54,7 +55,13 @@ namespace Final_Modulo2_Arturo
 
                 {
                     if(label1.Text != "")
+                    {
+                        Form3 a = new Form3();
+                        formulario = a;
+                        a.ci = label2.Text;
                         repite(formulario);
+                    }
+                        
                     else
                         MessageBox.Show("No estas registrado");
                 }

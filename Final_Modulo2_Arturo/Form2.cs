@@ -22,7 +22,7 @@ namespace Final_Modulo2_Arturo
             if (var!="")
             {
                 MessageBox.Show("ingreso correcto");
-                contrato.ejecutar(var);
+                contrato.ejecutar(var,textBox1.Text);
                 
             }
             else

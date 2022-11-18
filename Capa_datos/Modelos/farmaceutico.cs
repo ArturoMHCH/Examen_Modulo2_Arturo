@@ -8,12 +8,12 @@ namespace Capa_datos.Modelos
 {
     public class farmaceutico
     {
-        public int ci { get; set; }
+        public string ci { get; set; }
         public string nombreFarm { get; set; }
         public string apellidoFarm { get; set; }
-        public DateTime fecha_nac { get; set; }
+        public string fecha_nac { get; set; }
         public string contrasena { get; set; }
-        public char cargo { get; set; }
+        public string cargo { get; set; }
 
     }
 }
